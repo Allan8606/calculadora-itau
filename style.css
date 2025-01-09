@@ -29,6 +29,7 @@ img {
     background-color: white;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+   
 }
 
 /* Título */
@@ -100,10 +101,26 @@ input[type="text"]:focus {
     font-weight: bold;
 }
 
+/* Estilo para a marca d'água */
+.watermark {
+    position: fixed;
+    top: 10px; /* Posiciona no topo da tela */
+    right: 10px; /* Posiciona à direita */
+    font-size: 12px; /* Define um tamanho de fonte menor */
+    color: rgba(0, 0, 0, 0.3); /* Cor preta com opacidade para não ser muito chamativa */
+    font-weight: bold;
+    z-index: 9999; /* Garante que o texto fique acima de outros elementos */
+    pointer-events: none; /* Impede que o texto da marca d'água interfira nos cliques */
+  }
+  
+
 /* Responsividade */
 
 /* Para telas pequenas (até 768px de largura) */
 @media screen and (max-width: 768px) {
+    .watermark{
+        font-size: 10px;
+    }
     .container {
         padding: 20px;
         width: 90%; /* O contêiner agora ocupa 90% da largura da tela */
@@ -142,6 +159,9 @@ input[type="text"]:focus {
 
 /* Para telas muito pequenas (como celulares verticais) */
 @media screen and (max-width: 480px) {
+    .watermark{
+        font-size: 7px;
+    }
     .container {
         padding: 10px;
         width: 90%; /* O contêiner ocupa 90% da largura da tela */
