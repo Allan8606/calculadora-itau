@@ -65,7 +65,7 @@ function calcularParcela() {
     }
 
     formulaCalcularParcela();
-    limparFormulario();
+    
 }
 
 btn.addEventListener("click", calcularParcela);
