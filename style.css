@@ -1,0 +1,178 @@
+/* Estilos Globais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ff6d00;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e bordas não afetem a largura total */
+}
+
+* {
+    box-sizing: border-box; /* Aplica box-sizing a todos os elementos */
+}
+
+img {
+    display: block;
+    width: 100%; /* A imagem agora ocupa 100% do tamanho disponível */
+    max-width: 450px; /* Limita a largura máxima da imagem */
+    margin: 0 auto;
+    height: auto; /* Garante que a altura se ajuste proporcionalmente */
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    max-width: 600px; /* Largura máxima do contêiner */
+    margin: 0 auto; /* Centraliza o contêiner */
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: #4d4d4d;
+}
+
+/* Estilo dos inputs */
+.input-group {
+    margin-bottom: 15px;
+    padding-right: 25px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4d4d4d;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #b8b8b8;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus {
+    border-color: #004c8c;
+    outline: none;
+}
+
+/* Botão Calcular */
+.btn-calcular {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff5a00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-calcular:hover {
+    background-color: #f57c00;
+}
+
+/* Estilo para exibir o resultado */
+.resultado {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #004c8c;
+}
+
+/* Estilo de alerta em caso de erro */
+.erro {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Responsividade */
+
+/* Para telas pequenas (até 768px de largura) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 90%; /* O contêiner agora ocupa 90% da largura da tela */
+        max-width: none; /* Remove a limitação de max-width */
+        margin: 0 auto; /* Centraliza o contêiner */
+    }
+
+    img {
+        width: 100%; /* A imagem ocupa toda a largura do contêiner */
+        max-width: 400px; /* Limita a largura máxima da imagem */
+    }
+
+    .input-group {
+        margin-bottom: 12px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+        font-size: 14px; /* Reduz o tamanho da fonte dos inputs */
+        padding: 8px;
+    }
+
+    .btn-calcular {
+        padding: 10px;
+        font-size: 16px; /* Ajusta o tamanho do botão */
+    }
+
+    .resultado {
+        font-size: 18px;
+    }
+}
+
+/* Para telas muito pequenas (como celulares verticais) */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 10px;
+        width: 90%; /* O contêiner ocupa 90% da largura da tela */
+        margin: 0 auto; /* Garante que o contêiner continue centralizado */
+    }
+
+    img {
+        width: 100%; /* A imagem ocupa toda a largura da tela */
+        max-width: 350px; /* Limita o tamanho máximo da imagem */
+    }
+
+    .input-group {
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+        font-size: 12px; /* Ajusta ainda mais a fonte para telas pequenas */
+        padding: 6px;
+    }
+
+    .btn-calcular {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .resultado {
+        font-size: 16px;
+    }
+}
