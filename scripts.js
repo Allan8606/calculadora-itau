@@ -35,7 +35,7 @@ function verificaValoresValidos() {
 // Função com a fórmula para calcular a parcela
 function formulaCalcularParcela() {
     const tac = 0.03;
-    const taxaJuros = 0.0379;
+    const taxaJuros = 0.0399;
     const numParcelas = meses.value;
     const valorBruto = parseFloat(valor.value);
     const valorFinanciado = valorBruto * tac + valorBruto;
