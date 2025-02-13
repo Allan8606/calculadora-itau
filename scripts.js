@@ -50,7 +50,7 @@ function formulaCalcularParcela() {
     const atencao = document.createElement("p");
     atencao.classList.add("erro");
     atencao.textContent = `ATENÇÃO!!!
-    Valores aproximados.`;
+    Valores aproximados, e calculo com base na maior taxa possível.`;
     resultado.appendChild(atencao);
 
     const atencao2 = document.createElement("p");
