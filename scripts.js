@@ -43,7 +43,7 @@ function formulaCalcularParcela() {
         (valorFinanciado * taxaJuros) /
         (1 - Math.pow(1 + taxaJuros, -numParcelas));
 
-    resultado.innerHTML = `O valor da sua parcela sera de R$ ${valorParcela.toFixed(
+    resultado.innerHTML = `O valor da sua parcela será de R$ ${valorParcela.toFixed(
         2
     )}`;
 
