@@ -3,69 +3,84 @@ const meses = document.getElementById("meses");
 const btn = document.getElementsByClassName("btn-calcular")[0];
 const resultado = document.getElementById("resultado");
 
-// Função limpa formulario
+// Limpa os campos do formulário
 function limparFormulario() {
     valor.value = "";
     meses.value = "";
 }
 
+// Função para exibir uma mensagem de erro
+function mostrarErro(msg) {
+    const erro = document.createElement("p");
+    erro.classList.add("erro");
+    erro.textContent = msg;
+    resultado.appendChild(erro);
+}
+
 // Verifica se os valores inseridos são válidos
 function verificaValoresValidos() {
-    const erroExistente = document.querySelector(".erro");
+    resultado.innerHTML = ""; // Limpa resultado anterior
+
     if (
         isNaN(valor.value) ||
         valor.value <= 0 ||
-        isNaN(meses.value) ||
-        meses.value <= 0 ||
-        meses.value > 15
+        isNaN(meses.value)
     ) {
-        if (!erroExistente) {
-            const erro = document.createElement("p");
-            erro.classList.add("erro");
-            erro.textContent = "Por favor, insira um número valido.";
-            resultado.appendChild(erro);
-        }
+        mostrarErro("Por favor, insira valores válidos.");
+        limparFormulario();
+        valor.focus();
+        return false;
+    }
 
+    if (meses.value < 4 || meses.value > 15) {
+        mostrarErro("Por favor, escolha um prazo entre 04 e 15 meses.");
+        meses.value = "";
+        meses.focus();
+        return false;
+    }
+
+    if (valor.value < 400 || valor.value > 21000) {
+        mostrarErro("Por favor, escolha um valor entre R$ 400,00 e R$ 21.000,00.");
+        valor.value = "";
+        valor.focus();
         return false;
     }
 
     return true;
 }
 
-// Função com a fórmula para calcular a parcela
+// Função para calcular a parcela
 function formulaCalcularParcela() {
+    resultado.innerHTML = ""; // Limpa qualquer resultado anterior
+
     const tac = 0.03;
-    const taxaJuros = 0.0399;
-    const numParcelas = meses.value;
+    const taxaJuros = 0.0410;
+    const numParcelas = parseInt(meses.value);
     const valorBruto = parseFloat(valor.value);
-    const valorFinanciado = valorBruto * tac + valorBruto;
-    const valorParcela =
-        (valorFinanciado * taxaJuros) /
+    const valorFinanciado = valorBruto * (1 + tac);
+
+    const valorParcela = (valorFinanciado * taxaJuros) /
         (1 - Math.pow(1 + taxaJuros, -numParcelas));
 
-    resultado.innerHTML = `O valor da sua parcela será de R$ ${valorParcela.toFixed(
-        2
-    )}`;
+    const valorFormatado = valorParcela.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
 
-    const atencao = document.createElement("p");
-    atencao.classList.add("erro");
-    atencao.textContent = `ATENÇÃO!!!
-    Valores aproximados, e cálculo com base na maior taxa possível.`;
-    resultado.appendChild(atencao);
+    resultado.innerHTML = `O valor da parcela será de ${valorFormatado}`;
 
-    const atencao2 = document.createElement("p");
-    atencao2.classList.add("erro");
-    atencao2.textContent = `Valores com vencimento de 30 dias.`;
-    resultado.appendChild(atencao2);
+    mostrarErro("Os valores não são exatos, mas sim aproximados.");
+    mostrarErro("Valores com vencimento de 30 dias.");
 }
 
+// Função principal acionada ao clicar no botão
 function calcularParcela() {
     if (!verificaValoresValidos()) {
         return;
     }
 
     formulaCalcularParcela();
-    
 }
 
+// Evento do botão
 btn.addEventListener("click", calcularParcela);
