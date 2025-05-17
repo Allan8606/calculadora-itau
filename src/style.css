@@ -1,0 +1,186 @@
+/* Estilos Globais */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #ff6d00;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    margin: 20px auto 0;
+    height: auto;
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 25px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 30px; /* +2px */
+    margin-bottom: 25px;
+}
+
+/* Estilo dos inputs */
+.input-group {
+    margin-bottom: 18px;
+}
+
+label {
+    font-size: 20px; /* +2px */
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 6px;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #cccccc;
+    border-radius: 6px;
+    font-size: 19px; /* +2px */
+    color: #333;
+    transition: border-color 0.2s;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus {
+    border-color: #004c8c;
+    outline: none;
+}
+
+/* Botão Calcular */
+.btn-calcular {
+    width: 100%;
+    padding: 14px;
+    background-color: #ff5a00;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 22px; /* +2px */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-calcular:hover {
+    background-color: #f57c00;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para exibir o resultado */
+.resultado {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 24px; /* +2px */
+    font-weight: bold;
+    color: #004c8c;
+}
+
+/* Estilo de alerta em caso de erro */
+.erro {
+    color: #d60000;
+    font-size: 19px; /* +2px */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Marca d'água */
+.watermark {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 15px; /* +2px */
+    color: rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    img {
+        max-width: 400px;
+    }
+
+    label {
+        font-size: 18px; /* +2px */
+    }
+
+    input[type="number"],
+    input[type="text"] {
+        font-size: 17px; /* +2px */
+    }
+
+    .btn-calcular {
+        font-size: 20px; /* +2px */
+        padding: 12px;
+    }
+
+    .resultado {
+        font-size: 22px; /* +2px */
+    }
+
+    .watermark {
+        font-size: 12px; /* +2px */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    img {
+        max-width: 350px;
+    }
+
+    label {
+        font-size: 17px; /* +2px */
+    }
+
+    input[type="number"],
+    input[type="text"] {
+        font-size: 16px; /* +2px */
+        padding: 10px;
+    }
+
+    .btn-calcular {
+        font-size: 18px; /* +2px */
+        padding: 10px;
+    }
+
+    .resultado {
+        font-size: 20px; /* +2px */
+    }
+
+    .watermark {
+        font-size: 10px; /* +3px */
+    }
+}
