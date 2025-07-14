@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcular Atraso - Banco Itaú</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- Logo -->
+  <img src="./img/itau.jpg" alt="logo itaú">
+
+  <div class="container">
+    <h1>Calcular Atraso</h1>
+
+    <!-- Formulário para inserir os dados -->
+    <div class="input-group">
+      <label for="valor-parcela">Valor Original da Parcela (R$):</label>
+      <input type="text" id="valor-parcela" placeholder="Digite o valor da parcela" />
+    </div>
+
+    <div class="input-group">
+      <label for="dias-atraso">Quantidade de Dias de Atraso:</label>
+      <input type="number" id="dias-atraso" placeholder="Digite o número de dias de atraso" />
+    </div>
+
+    <button class="btn-calcular">Calcular Atraso</button>
+    <button class="btn-calcular" id="btn-voltar" style="margin-top:10px;">Voltar</button>
+
+    <!-- Exibição do resultado -->
+    <div id="resultado" class="resultado"></div>
+  </div>
+
+  <!-- Marca D'água -->
+  <div class="watermark">Developed by Allan Isaac</div>
+
+  <script type="module" src="./scripts/atraso.js"></script>
+  <script>
+    document.getElementById('btn-voltar').addEventListener('click', function() {
+      window.location.href = 'index.htm';
+    });
+  </script>
+</body>
+
+</html> 

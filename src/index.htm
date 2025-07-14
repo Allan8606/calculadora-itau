@@ -30,6 +30,7 @@
     </div>
 
     <button class="btn-calcular">Calcular</button>
+    <button class="btn-calcular" id="btn-atraso" style="margin-top:10px;">Calcular Atraso</button>
 
     <!-- Exibição do resultado -->
     <div id="resultado" class="resultado"></div>
@@ -39,6 +40,11 @@
   <div class="watermark">Developed by Allan Isaac</div>
 
   <script type="module" src="./scripts/scripts.js"></script>
+  <script>
+    document.getElementById('btn-atraso').addEventListener('click', function() {
+      window.location.href = 'atraso.htm';
+    });
+  </script>
 
 </body>
 
