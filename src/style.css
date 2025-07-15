@@ -69,6 +69,22 @@ input[type="text"]:focus {
     outline: none;
 }
 
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #cccccc;
+    border-radius: 6px;
+    font-size: 17px;
+    color: #333;
+    transition: border-color 0.2s;
+    background: white;
+}
+
+input[type="date"]:focus {
+    border-color: #004c8c;
+    outline: none;
+}
+
 /* Botão Calcular */
 .btn-calcular {
     width: 100%;
@@ -138,6 +154,11 @@ input[type="text"]:focus {
         font-size: 15px; /* +2px */
     }
 
+    input[type="date"] {
+        font-size: 15px;
+        padding: 10px;
+    }
+
     .btn-calcular {
         font-size: 18px; /* +2px */
         padding: 12px;
@@ -168,6 +189,11 @@ input[type="text"]:focus {
     input[type="number"],
     input[type="text"] {
         font-size: 15px; /* +2px */
+        padding: 10px;
+    }
+
+    input[type="date"] {
+        font-size: 15px;
         padding: 10px;
     }
 

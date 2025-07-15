@@ -1,9 +1,11 @@
 import { formatarParaMoeda } from "./formatarParaMoeda.js";
 
 const valorParcela = document.getElementById("valor-parcela");
-const diasAtraso = document.getElementById("dias-atraso");
+const dataVencimento = document.getElementById("data-vencimento");
+const dataPagamento = document.getElementById("data-pagamento");
 const btnCalcular = document.querySelector(".btn-calcular");
 const resultado = document.getElementById("resultado");
+const mensagemDiasAtraso = document.getElementById("mensagem-dias-atraso");
 
 valorParcela.addEventListener("input", formatarParaMoeda);
 
@@ -22,15 +24,34 @@ function arredondarParaCincoCentavos(valor) {
   return Math.ceil(valor * 20) / 20;
 }
 
+function atualizarMensagemDiasAtraso() {
+  const vencimento = new Date(dataVencimento.value);
+  const pagamento = new Date(dataPagamento.value);
+  const diffTime = pagamento - vencimento;
+  const dias = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  if (isNaN(dias) || dias <= 0) {
+    mensagemDiasAtraso.textContent = '';
+  } else {
+    mensagemDiasAtraso.textContent = `Total de dias de atraso: ${dias} dia${dias > 1 ? 's' : ''}`;
+  }
+}
+// Remover chamada de atualizarMensagemDiasAtraso nos eventos de mudança das datas
+
 function calcularAtraso() {
   const valorOriginal = parseValorMoeda(valorParcela.value);
-  const dias = parseInt(diasAtraso.value, 10);
+  const vencimento = new Date(dataVencimento.value);
+  const pagamento = new Date(dataPagamento.value);
+  const diffTime = pagamento - vencimento;
+  const dias = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
   if (isNaN(valorOriginal) || valorOriginal <= 0) {
     resultado.innerHTML = '<span class="erro">Digite um valor válido para a parcela.</span>';
+    mensagemDiasAtraso.textContent = '';
     return;
   }
   if (isNaN(dias) || dias <= 0) {
-    resultado.innerHTML = '<span class="erro">Digite a quantidade de dias de atraso.</span>';
+    resultado.innerHTML = '<span class="erro">Selecione datas válidas para calcular o atraso.</span>';
+    mensagemDiasAtraso.textContent = '';
     return;
   }
 
@@ -45,6 +66,7 @@ function calcularAtraso() {
   valorFinal = arredondarParaCincoCentavos(valorFinal);
 
   resultado.innerHTML = `Valor Atual da Parcela: <br><strong>${valorFinal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>`;
+  mensagemDiasAtraso.textContent = `Total de dias de atraso: ${dias} dia${dias > 1 ? 's' : ''}`;
 }
 
 btnCalcular.addEventListener("click", calcularAtraso); 
